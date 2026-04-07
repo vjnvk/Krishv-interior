@@ -1,0 +1,23 @@
+{
+  "name": "krishv-interior",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/vjnvk/Krishv-interior#readme",
+  "bugs": {
+    "url": "https://github.com/vjnvk/Krishv-interior/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjnvk/Krishv-interior.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+  "sass": "node-sass --watch web/scss/main.scss web/css/style.css"
+},
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
