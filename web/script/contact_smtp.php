@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: KingArchitect - Property & Real Estate HTML Template
+
 
 Variable
 	$recaptchaSecret : Recaptcha Secret Key
@@ -25,8 +25,8 @@ require('recaptcha-master/src/autoload.php');
 /* ReCaptch Secret */
 $recaptchaSecret = '<!-- Put Your reCaptcha Secret Key -->';
 
-$dzEmailTo 		= "info@exemple.com";   /* Receiver Email Address */
-$dzEmailFrom    = "KingArchitect Contact";
+$dzEmailTo 		= "vjnvk001@gmail.com";   /* Receiver Email Address */
+$dzEmailFrom    = "Krishv Global Interior Contact";
 
 #### Load PHP Mailer Library ####
 use PHPMailer\PHPMailer\PHPMailer;
