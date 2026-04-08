@@ -63,6 +63,59 @@
   font-size: 20px;
   cursor: pointer;
 }
+  /* .whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    left: 20px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px #999;
+    z-index: 100;
+  }
+
+  .whatsapp-float img {
+    width: 35px;
+    margin-top: 12px;
+  }
+
+  .whatsapp-float:hover {
+    background-color: #20b358;
+  } */
+
+    .whatsapp-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+  }
+
+  .whatsapp-text img {
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .whatsapp-float {
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .whatsapp-float img {
+    width: 35px;
+  }
+
 	</style>
 </head>
 
@@ -143,12 +196,12 @@
 			<ul class="navbar">
 				<li><a class="scroll nav-link" href="#home"><i class="las la-home"></i> <span>Home</span></a></li>
 				<li><a class="scroll nav-link" href="#specifications"><i class="las la-file-alt"></i> <span>specifications</span></a></li>
-				<li><a class="scroll nav-link" href="#aboutUs"><i class="las la-user"></i> <span>ABOUT US</span></a></li>
+				<li><a class="scroll nav-link" href="#aboutUs"><i class="las la-user"></i> <span>Why Choose?</span></a></li>
 				<li><a class="scroll nav-link" href="#masterPlan"><i class="las la-chart-bar"></i> <span>MASTER PLAN</span></a></li>
-				<li><a class="scroll nav-link" href="#mainGallery"><i class="las la-image"></i> <span>Gallery</span></a></li>
+				<li><a class="scroll nav-link" href="#aboutus"><i class="las la-image"></i> <span>ABOUT US</span></a></li>
 				<li><a class="scroll nav-link" href="#ourServices"><i class="las la-cog"></i> <span>Our Services</span></a></li>
-				<li><a class="scroll nav-link" href="#newsEvent"><i class="las la-rss"></i> <span>Our Projects</span></a></li>
-				<li><a class="scroll nav-link" href="#footer"><i class="las la-phone-volume"></i> <span>Contact Us</span></a></li>
+				<li><a class="scroll nav-link" href="#ourprojects"><i class="las la-rss"></i> <span>Our Projects</span></a></li>
+				<li><a class="scroll nav-link" href="#contactus"><i class="las la-phone-volume"></i> <span>Contact Us</span></a></li>
 			</ul>
 		</div>
 		<div class="page-content bg-white">
@@ -672,7 +725,7 @@
 												</div>
 												<ul class="flat-plan">
 													<li>
-														<img src="images/icons/icon-1.png" alt=""/>
+														<img src="images/icons/icon-1.png" alt="" />
 														<h3>1814.73</h3>
 														<span>Square Feet</span>
 													</li>
@@ -698,7 +751,8 @@
 										<div class="col-lg-6">
 											<div class="plan-preview-wrapper">
 												<div class="plan-preview">
-													<img src="images/plan/pic1.jpg" alt=""/>
+													<img src="images/plan/pic1.jpg"  style="filter: blur(3px);" alt="" />
+													<a href="#masterPlan" class="btn btn-primary btnhover13" onclick="openPopup()"><i class="las la-lock"></i> Download plans </a>
 												</div>
 											</div>
 										</div>
@@ -1070,7 +1124,7 @@
 
 		<!-- ended popup -->
 
-				<section class="section-full bg-white content-inner-1 about-bx1">
+				<section class="section-full bg-white content-inner-1 about-bx1" data-content="ABOUT US" id="aboutus">
                 <div class="container">
                     <div class="row align-items-center">
 						<div class="col-lg-6 col-md-6 col-sm-12 col-12 wow fadeIn" data-wow-delay="0.4s"  data-wow-duration="2s">
@@ -1096,7 +1150,7 @@
 				</div>
             </section>	
 
-			<section id="mainGallery">
+			<!-- <section id="mainGallery">
 				<div class="main-gallery wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
 					<div class="gallery-img">
 						<img src="images/gallery/main1.jpg" id="structureOne" class="active" alt=""/>
@@ -1210,7 +1264,8 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
+
 			<section class="content-inner-2" data-content="OUR SERVICES" id="ourServices">				
 				<div class="container">
 					<div class="row align-items-end section-head wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.5s">
@@ -1432,7 +1487,7 @@
 		</div>
 
 		<!-- testimonial-detail -->
-	        <section class="content-inner-2" data-content="PROJECTS">
+	        <section class="content-inner-2" data-content="OURPROJECTS" id="ourprojects">
                 <div class="container-fluid">
 					<div class="section-head text-center">
 						<p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">Design Projects</p>
@@ -1710,7 +1765,7 @@
 		
 			<!-- Main Slider -->
 			<section class="content-inner-1" data-content="ABOUT US">				
-				<div class="container">
+				<div class="container" id="contactus">
 					<div class="row align-items-center">
 						<div class="col-lg-4 col-md-5 col-sm-12">
 							<div class="section-head m-b30">
@@ -1850,6 +1905,33 @@ function closePopup() {
   }, 5000);
 }
 </script>
+
+<a href="https://wa.me/919999999999?text=Hello%20I%20need%20info" target="_blank">
+  <div class="whatsapp-container">
+
+    <!-- Your custom image -->
+    <div class="whatsapp-text">
+      <img src="./images/chara/Characters.png" alt="Chat">
+	  <!-- <img src="https://uploads-us-west-2.insided.com/figma-en/attachment/7105e9c010b3d1f0ea893ed5ca3bd58e6cec090e.gif" alt="chat"> -->
+	     <!-- <img src="https://via.placeholder.com/120x50?text=Chat+Now" alt="Chat"> -->
+    </div>
+
+    <!-- WhatsApp icon -->
+    <!-- <div class="whatsapp-float">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </div> -->
+
+  </div>
+</a>
+
+
+
+<!-- <a href="https://wa.me/919999999999?text=Hello%20I%20am%20interested%20in%20your%20services"
+   class="whatsapp-float"
+   target="_blank">
+   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a> -->
+
 
 	<!-- Footer -->
     <footer class="site-footer" id="footer">
