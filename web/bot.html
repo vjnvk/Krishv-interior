@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WhatsApp Floating Button</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* WhatsApp Floating Container */
+.whatsapp-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.4s ease;
+}
+
+/* Show after scroll */
+.whatsapp-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image styling */
+.whatsapp-text img {
+  width: 100px;
+  display: block;
+  animation: float 2s infinite ease-in-out;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Dummy content to enable scroll -->
+<div class="h-[1500px] flex items-center justify-center">
+  <h1 class="text-3xl">Scroll Down 👇</h1>
+</div>
+
+<!-- WhatsApp Floating -->
+<div class="whatsapp-container" id="whatsappBox">
+  <a href="https://wa.me/919999999999?text=Hello%20I%20need%20info" target="_blank">
+    <div class="whatsapp-text">
+      <!-- Replace this with your GIF -->
+      <img src="./images/chara/Characters.png" alt="Chat">
+      <!-- <img src="https://via.placeholder.com/100x100?text=Chat" alt="Chat"> -->
+    </div>
+  </a>
+</div>
+
+<script>
+// Show after scroll
+window.addEventListener("scroll", function () {
+  const box = document.getElementById("whatsappBox");
+
+  if (window.scrollY > 200) {
+    box.classList.add("show");
+  } else {
+    box.classList.remove("show");
+  }
+});
+
+// Optional: show after 3 seconds even without scroll
+setTimeout(() => {
+  document.getElementById("whatsappBox").classList.add("show");
+}, 3000);
+</script>
+
+</body>
+</html>
