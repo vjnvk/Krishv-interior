@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <title>Interior Cost Estimator</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .cost-disclaimer {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    color: #6c757d;
+    font-size: 15px;
+    margin-top: 20px;
+    border-left: 4px solid var(--primary-color);
+    text-align: left;
+}
+</style>
 </head>
 
 <body class="bg-gray-100">
@@ -72,7 +84,7 @@ function render() {
     document.getElementById("step").innerHTML = `
       <h2 class="text-xl mb-4">Your Details</h2>
 
-      <input id="name" placeholder="Name" class="w-full p-2 mb-2 border rounded">
+      <input id="name" placeholder="Name" class="w-full p-2 mb-2 border rounded" >
       <input id="phone" placeholder="Phone" class="w-full p-2 mb-2 border rounded">
       <input id="email" placeholder="Email" class="w-full p-2 mb-2 border rounded">
       <input id="city" placeholder="City" class="w-full p-2 mb-2 border rounded">
@@ -96,6 +108,13 @@ function render() {
       <p class="mt-2 text-gray-500">We will contact you soon</p>
       <button type="button">Click Me!</button>
       <a href="https://www.google.com">Visit Google</a>
+     <div class="cost-disclaimer"> <strong>Note:</strong>" This isn't a final quote and can be customised to suit your needs."
+      
+      <h2> Thank you for giving us this opportunity!</h2>
+      <p>"We will get in touch with you shortly"</p>
+      </div>
+  
+                
     `;
   }
 }
@@ -166,38 +185,92 @@ function calculate(){
 
 // }
 
+// function submitForm(){
+
+//   formData.name = document.getElementById("name").value;
+//   formData.phone = document.getElementById("phone").value;
+//   formData.email = document.getElementById("email").value;
+//   formData.city = document.getElementById("city").value;
+//   formData.location = document.getElementById("location").value;
+//   formData.timeline = document.getElementById("timeline").value;
+
+//   let price = calculate();
+//   formData.total = price.min;
+
+//   fetch("https://script.google.com/macros/s/AKfycbxT51xIV_P_IzjeYReuzGh_RxMxbLNXVwdFtVtVHMQ_XoPfuBkX6wXZlC0UUErB5cgV/exec", {
+//     method: "POST",
+//     mode: "no-cors",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(formData)
+//   })
+//   .then(res => res.text())
+//   .then(res => {
+//     console.log(res);
+//     step = 4;
+//     render();
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     alert("Error submitting form");
+//   });
+// }
+// render();
+
 function submitForm(){
 
-  formData.name = document.getElementById("name").value;
-  formData.phone = document.getElementById("phone").value;
-  formData.email = document.getElementById("email").value;
-  formData.city = document.getElementById("city").value;
-  formData.location = document.getElementById("location").value;
-  formData.timeline = document.getElementById("timeline").value;
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const city = document.getElementById("city").value.trim();
+  const location = document.getElementById("location").value.trim();
+  const timeline = document.getElementById("timeline").value;
+
+  // ✅ SIMPLE VALIDATION (NO UI BREAK)
+  if (!name || !phone || !email || !city || !location) {
+    alert("All fields are required");
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Enter valid 10-digit phone");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert("Enter valid email");
+    return;
+  }
+
+  formData.name = name;
+  formData.phone = phone;
+  formData.email = email;
+  formData.city = city;
+  formData.location = location;
+  formData.timeline = timeline;
 
   let price = calculate();
   formData.total = price.min;
 
+  // ✅ SEND DATA
+  const form = new FormData();
+  for (let key in formData) {
+    form.append(key, formData[key]);
+  }
+
   fetch("https://script.google.com/macros/s/AKfycbxT51xIV_P_IzjeYReuzGh_RxMxbLNXVwdFtVtVHMQ_XoPfuBkX6wXZlC0UUErB5cgV/exec", {
     method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
+    // mode: "no-cors",
+    body: form
   })
-  .then(res => res.text())
-  .then(res => {
-    console.log(res);
+  .then(() => {
     step = 4;
     render();
   })
-  .catch(err => {
-    console.error(err);
-    alert("Error submitting form");
-  });
+  .catch(() => alert("Error submitting form"));
 }
-render();
+ render();
 </script>
 
 </body>
