@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interior Cost Estimator</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow">
+
+  <!-- Progress -->
+  <div class="flex justify-between mb-6 text-sm font-semibold">
+    <div id="p1">1 Property</div>
+    <div id="p2">2 Rooms</div>
+    <div id="p3">3 Details</div>
+    <div id="p4">4 Estimate</div>
+  </div>
+
+  <!-- Step Container -->
+  <div id="step"></div>
+
+</div>
+
+<script>
+let step = 1;
+
+let formData = {
+  bhk: "",
+  bedroom: 1,
+  kitchen: 1,
+  living: 1,
+  bathroom: 1,
+  balcony: 0,
+  name: "",
+  phone: "",
+  email: "",
+  city: "",
+  location: "",
+  timeline: ""
+};
+
+function render() {
+
+  if(step === 1){
+    document.getElementById("step").innerHTML = `
+      <h2 class="text-xl mb-4">Select Property</h2>
+      <div class="grid grid-cols-2 gap-4">
+        ${["1 BHK","2 BHK","3 BHK","4 BHK","5+ BHK"].map(b => `
+          <button onclick="selectBHK('${b}')" class="p-4 border rounded-xl hover:bg-orange-500 hover:text-white">${b}</button>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  if(step === 2){
+    document.getElementById("step").innerHTML = `
+      <h2 class="text-xl mb-4">Select Rooms</h2>
+
+      ${roomUI("Bedroom","bedroom")}
+      ${roomUI("Kitchen","kitchen")}
+      ${roomUI("Living Room","living")}
+      ${roomUI("Bathroom","bathroom")}
+      ${roomUI("Balcony","balcony")}
+
+      <button onclick="next()" class="mt-4 bg-orange-500 text-white px-6 py-2 rounded">Next</button>
+    `;
+  }
+
+  if(step === 3){
+    document.getElementById("step").innerHTML = `
+      <h2 class="text-xl mb-4">Your Details</h2>
+
+      <input id="name" placeholder="Name" class="w-full p-2 mb-2 border rounded">
+      <input id="phone" placeholder="Phone" class="w-full p-2 mb-2 border rounded">
+      <input id="email" placeholder="Email" class="w-full p-2 mb-2 border rounded">
+      <input id="city" placeholder="City" class="w-full p-2 mb-2 border rounded">
+      <input id="location" placeholder="Location" class="w-full p-2 mb-2 border rounded">
+
+      <select id="timeline" class="w-full p-2 mb-3 border rounded">
+        <option>Immediately</option>
+        <option>Within 3 Months</option>
+      </select>
+
+      <button onclick="submitForm()" class="bg-orange-500 text-white px-6 py-2 rounded">Get Estimate</button>
+    `;
+  }
+
+  if(step === 4){
+    let price = calculate();
+
+    document.getElementById("step").innerHTML = `
+      <h2 class="text-xl mb-4">Your Estimate</h2>
+      <h1 class="text-3xl text-green-600 font-bold">₹${price.min} - ₹${price.max}</h1>
+      <p class="mt-2 text-gray-500">We will contact you soon</p>
+      <button type="button">Click Me!</button>
+      <a href="https://www.google.com">Visit Google</a>
+    `;
+  }
+}
+
+function roomUI(label, key){
+  return `
+    <div class="flex justify-between items-center border p-2 mb-2 rounded">
+      <span>${label}</span>
+      <div>
+        <button onclick="change('${key}',-1)" class="px-2 bg-gray-300">-</button>
+        <span class="px-3">${formData[key]}</span>
+        <button onclick="change('${key}',1)" class="px-2 bg-orange-400 text-white">+</button>
+      </div>
+    </div>
+  `;
+}
+
+function change(key,val){
+  formData[key] = Math.max(0, formData[key] + val);
+  render();
+}
+
+function selectBHK(b){
+  formData.bhk = b;
+  next();
+}
+
+function next(){
+  step++;
+  render();
+}
+
+function calculate(){
+  let total =
+    (formData.bedroom * 40000) +
+    (formData.kitchen * 60000) +
+    (formData.living * 30000) +
+    (formData.bathroom * 20000);
+
+  return {
+    min: total,
+    max: total + 200000
+  };
+}
+
+// function submitForm(){
+
+//   formData.name = document.getElementById("name").value;
+//   formData.phone = document.getElementById("phone").value;
+//   formData.email = document.getElementById("email").value;
+//   formData.city = document.getElementById("city").value;
+//   formData.location = document.getElementById("location").value;
+//   formData.timeline = document.getElementById("timeline").value;
+
+// fetch("https://script.google.com/macros/s/AKfycbxSkVvLer1X2005RRAamCDkv2zonKYWMdhy4513TkKQqd5xRU4-Lq4NbproZAG3UNyTew/exec", {
+//   method: "POST",
+//   mode: "no-cors",
+//   headers: {
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify(formData)
+// })
+// .then(() => {
+//   step = 4;
+//   render();
+// })
+// .catch(() => alert("Error submitting form"));
+
+// }
+
+function submitForm(){
+
+  formData.name = document.getElementById("name").value;
+  formData.phone = document.getElementById("phone").value;
+  formData.email = document.getElementById("email").value;
+  formData.city = document.getElementById("city").value;
+  formData.location = document.getElementById("location").value;
+  formData.timeline = document.getElementById("timeline").value;
+
+  let price = calculate();
+  formData.total = price.min;
+
+  fetch("https://script.google.com/macros/s/AKfycbxT51xIV_P_IzjeYReuzGh_RxMxbLNXVwdFtVtVHMQ_XoPfuBkX6wXZlC0UUErB5cgV/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(res => res.text())
+  .then(res => {
+    console.log(res);
+    step = 4;
+    render();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Error submitting form");
+  });
+}
+render();
+</script>
+
+</body>
+</html>
