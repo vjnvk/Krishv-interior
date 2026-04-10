@@ -41,7 +41,7 @@
     <div class="page-wraper">
 	<!-- header -->
 		<header class="site-header header-transparent">
-			<div class="top-bar">
+			<!-- <div class="top-bar">
 				<div class="container-fluid">
 					<div class="row d-flex justify-content-between align-items-center">
 						<div class="dlab-topbar-left">
@@ -58,7 +58,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- main header -->
 			<div class="sticky-header main-bar-wraper navbar-expand-lg">
 				<div class="main-bar clearfix ">
@@ -139,23 +139,19 @@
 								<li>
 									<i class="fa fa-map-marker"></i>
 									<h4 class="title">Address</h4>
-									<p>123 West Street, Melbourne Victoria 3000 Australia</p>
+									<p>1797, 14th Main Rd, Brindavan Nagar, HBR Layout, Bengaluru, Karnataka 560043</p>
 								</li>
 								<li>
 									<i class="fa fa-envelope-o"></i>
 									<h4 class="title">Email</h4>
-									<p>info@example.com</p>
+									<p>interior@krishvglobal.com</p>
 								</li>
 								<li>
 									<i class="fa fa-phone"></i>
 									<h4 class="title">Phone</h4>
-									<p>+61 3 8376 6284<br>+23 123 456 7890</p>
+									<p>+91 8880225544</p>
 								</li>
-								<li>
-									<i class="fa fa-fax"></i>
-									<h4 class="title">Fax</h4>
-									<p>+000 123 2294 089</p>
-								</li>
+								
 							</ul>
 						</div>
 						<div class="col-lg-8 col-md-7 col-sm-12 m-b30">
@@ -223,7 +219,7 @@ function render() {
     document.getElementById("step").innerHTML = `
       <h2 class="text-xl mb-4">Your Details</h2>
 
-      <input id="name" placeholder="Name" class="w-full p-2 mb-2 border rounded">
+      <input id="name" placeholder="Name" class="w-full p-2 mb-2 border rounded" >
       <input id="phone" placeholder="Phone" class="w-full p-2 mb-2 border rounded">
       <input id="email" placeholder="Email" class="w-full p-2 mb-2 border rounded">
       <input id="city" placeholder="City" class="w-full p-2 mb-2 border rounded">
@@ -247,6 +243,13 @@ function render() {
       <p class="mt-2 text-gray-500">We will contact you soon</p>
       <button type="button">Click Me!</button>
       <a href="https://www.google.com">Visit Google</a>
+     <div class="cost-disclaimer"> <strong>Note:</strong>" This isn't a final quote and can be customised to suit your needs."
+      
+      <h2> Thank you for giving us this opportunity!</h2>
+      <p>"We will get in touch with you shortly"</p>
+      </div>
+  
+                
     `;
   }
 }
@@ -292,64 +295,62 @@ function calculate(){
   };
 }
 
-// function submitForm(){
-
-//   formData.name = document.getElementById("name").value;
-//   formData.phone = document.getElementById("phone").value;
-//   formData.email = document.getElementById("email").value;
-//   formData.city = document.getElementById("city").value;
-//   formData.location = document.getElementById("location").value;
-//   formData.timeline = document.getElementById("timeline").value;
-
-// fetch("https://script.google.com/macros/s/AKfycbxSkVvLer1X2005RRAamCDkv2zonKYWMdhy4513TkKQqd5xRU4-Lq4NbproZAG3UNyTew/exec", {
-//   method: "POST",
-//   mode: "no-cors",
-//   headers: {
-//     "Content-Type": "application/json"
-//   },
-//   body: JSON.stringify(formData)
-// })
-// .then(() => {
-//   step = 4;
-//   render();
-// })
-// .catch(() => alert("Error submitting form"));
-
-// }
 
 function submitForm(){
 
-  formData.name = document.getElementById("name").value;
-  formData.phone = document.getElementById("phone").value;
-  formData.email = document.getElementById("email").value;
-  formData.city = document.getElementById("city").value;
-  formData.location = document.getElementById("location").value;
-  formData.timeline = document.getElementById("timeline").value;
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const city = document.getElementById("city").value.trim();
+  const location = document.getElementById("location").value.trim();
+  const timeline = document.getElementById("timeline").value;
+
+  // ✅ SIMPLE VALIDATION (NO UI BREAK)
+  if (!name || !phone || !email || !city || !location) {
+    alert("All fields are required");
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Enter valid 10-digit phone");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert("Enter valid email");
+    return;
+  }
+
+  formData.name = name;
+  formData.phone = phone;
+  formData.email = email;
+  formData.city = city;
+  formData.location = location;
+  formData.timeline = timeline;
 
   let price = calculate();
   formData.total = price.min;
 
+  // ✅ SEND DATA
+  const form = new FormData();
+  for (let key in formData) {
+    form.append(key, formData[key]);
+  }
+
   fetch("https://script.google.com/macros/s/AKfycbxT51xIV_P_IzjeYReuzGh_RxMxbLNXVwdFtVtVHMQ_XoPfuBkX6wXZlC0UUErB5cgV/exec", {
     method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
+    // mode: "no-cors",
+    body: form
   })
-  .then(res => res.text())
-  .then(res => {
-    console.log(res);
+  .then(() => {
     step = 4;
     render();
   })
-  .catch(err => {
-    console.error(err);
-    alert("Error submitting form");
-  });
+  .catch(() => alert("Error submitting form"));
 }
-render();
+ render();
 </script>
+
 
 						</div>
 					</div>
