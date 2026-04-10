@@ -72,6 +72,121 @@
   100% { transform: translateY(0px); }
 }
 
+  /* OPEN BUTTON */
+    .open-btn {
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      padding: 15px 30px;
+      background: #a86522;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* POPUP CONTAINER */
+    .popup {
+      display: flex;
+      width: 750px;
+      max-width: 95%;
+      background: #e2c187;
+      border-radius: 6px;
+      overflow: hidden;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    /* LEFT IMAGE */
+    .popup-left {
+      width: 50%;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+      min-height: 350px;
+    }
+
+    /* RIGHT CONTENT */
+    .popup-right {
+      width: 50%;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .popup-right h2 {
+      font-size: 22px;
+      margin-bottom: 25px;
+      color: #000;
+      line-height: 1.4;
+    }
+
+    /* INPUT */
+    .popup-right input {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      background: #eee;
+      width: 100%;
+    }
+
+    /* BUTTON */
+    .popup-right button {
+      padding: 14px;
+      background: #a86522;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .popup-right button:hover {
+      background: #8a4f18;
+    }
+
+    /* CLOSE BUTTON */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      .popup {
+        flex-direction: column;
+      }
+      .popup-left {
+        width: 100%;
+        height: 200px;
+      }
+      .popup-right {
+        width: 100%;
+      }
+    }
+
 	</style>
 </head>
 
@@ -506,7 +621,7 @@
 				<div class="container">
 					<div class="section-head head-col">
 						<h2 class="title wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">Specifications</h2>
-						<p class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+						<p class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">Our interior specifications are designed to ensure quality, functionality, and aesthetics — delivering a seamless experience from design to execution.</p>
 					</div>
 				</div>
 				<div class="row faqs-box spno">
@@ -525,101 +640,101 @@
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
 								<div class="card-header" id="heading1">
 									<a href="javascript:void(0)" data-toggle="collapse" data-target="#faq1" aria-expanded="true" aria-controls="faq1" data-image-bx="Capmap2">
-									  Structure
+									  DESIGN & PLANNING
 									</a>
 								</div>
 								<div id="faq1" class="collapse faq-content show" aria-labelledby="heading1" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Customized interior concepts tailored to your lifestyle, space, and preferences with detailed 2D layouts and 3D visualizations for better clarity.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
 								<div class="card-header" id="heading2">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="faq2" data-image-bx="Capmap1">
-									  Exterior Finish
+									  MODULAR SOLUTIONS
 									</a>
 								</div>
 								<div id="faq2" class="collapse faq-content" aria-labelledby="heading2" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Factory-finished modular interiors including kitchens, wardrobes, and storage units designed for durability, precision, and modern living.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
 								<div class="card-header" id="heading3">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="faq3" data-image-bx="Capmap3">
-										Door
+										MATERIALS & FINISHES
 									</a>
 								</div>
 								<div id="faq3" class="collapse faq-content" aria-labelledby="heading3" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Use of high-quality plywood, laminates, acrylic, glass, and premium finishes selected based on design requirements and longevity.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
 								<div class="card-header" id="heading4">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq4" aria-expanded="false" aria-controls="faq4" data-image-bx="Capmap1">
-										Floor
+										FURNITURE & STORAGE
 									</a>
 								</div>
 								<div id="faq4" class="collapse faq-content" aria-labelledby="heading4" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Smartly designed furniture and storage solutions that maximize space utilization while maintaining aesthetics and comfort.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
 								<div class="card-header" id="heading5">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq5" aria-expanded="false" aria-controls="faq5" data-image-bx="Capmap3">
-										Kitchen
+										FALSE CEILING & LIGHTING
 									</a>
 								</div>
 								<div id="faq5" class="collapse faq-content" aria-labelledby="heading5" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Customized ceiling designs with ambient, task, and accent lighting to enhance the overall look and feel of your space.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.2s">
 								<div class="card-header" id="heading6">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq6" aria-expanded="false" aria-controls="faq6" data-image-bx="Capmap2">
-										Electrification
+										KITCHEN INTERIORS
 									</a>
 								</div>
 								<div id="faq6" class="collapse faq-content" aria-labelledby="heading6" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Ergonomic modular kitchen designs with efficient layouts, premium finishes, and optimized storage for everyday convenience.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.4s">
 								<div class="card-header" id="heading7">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq7" aria-expanded="false" aria-controls="faq7" data-image-bx="Capmap1">
-										Interior Finish
+										BEDROOM INTERIORS
 									</a>
 								</div>
 								<div id="faq7" class="collapse faq-content" aria-labelledby="heading7" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Stylish and functional bedroom setups including wardrobes, beds, side units, and lighting designed for comfort and relaxation.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.6s">
 								<div class="card-header" id="heading8">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq8" aria-expanded="false" aria-controls="faq8" data-image-bx="Capmap3">
-										Bathrooms & Plumning
+										LIVING & DINING SPACES
 									</a>
 								</div>
 								<div id="faq8" class="collapse faq-content" aria-labelledby="heading8" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Elegant living and dining interiors with customized TV units, wall paneling, décor elements, and space planning for a premium look.</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.8s">
 								<div class="card-header" id="heading9">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq9" aria-expanded="false" aria-controls="faq9" data-image-bx="Capmap1">
-										Water Supply
+										HOME AUTOMATION
 									</a>
 								</div>
 								<div id="faq9" class="collapse faq-content" aria-labelledby="heading9" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">Smart home solutions including lighting control, automation systems, and integrated technology for modern living</div>
 								</div>
 							</div>
 							<div class="card wow fadeInUp" data-wow-duration="2s" data-wow-delay="2s">
 								<div class="card-header" id="heading10">
 									<a href="javascript:void(0)" class="collapsed" data-toggle="collapse" data-target="#faq10" aria-expanded="false" aria-controls="faq10" data-image-bx="Capmap3">
-										Window
+										EXECUTION & INSTALLATION
 									</a>
 								</div>
 								<div id="faq10" class="collapse faq-content" aria-labelledby="heading10" data-parent="#faqSpecifications">
-									<div class="card-body">earthquake resistant r.c.c frame structure for safety aspects.</div>
+									<div class="card-body">End-to-end project execution handled by experienced professionals ensuring timely delivery, quality checks, and seamless installation.</div>
 								</div>
 							</div>
 						</div>
@@ -634,11 +749,11 @@
 							<div class="section-head">
 								<h2 class="title wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">Why Choose Krish-v Global Interior?</h2>
 								<div class="dlab-separator bg-primary  wow fadeInUp" data-wow-duration="4s" data-wow-delay="0.2s"></div>
-								<h4 class="mb-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">SEE WHY OUR RESIDENTS CALL OUR COMMUNITY HOME.</h4>
-								<p class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">Surround yourself with fresh energy, high-tech amenities, and elevated style. Indulge in extraordinary amenities, relax in appealing social spaces, and cultivate your ideal life. We're the fresh look in this historic district - a vibrant new community for movers and shakers.</p>
-								<p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">A bold new life awaits you at Krish-v Global Interior , a brand new community of apartment homes situated at the cutting edge of modern design. Residents of Krish-v Global Interior  enjoy luxury living with a sparkling swimming pool, fitness center and indoor game, parking garage and temple. Discover a Krish-v Global Interior  from our convenient location. Nothing quite complements a comfortable, stylish home like an array of luxury amenities.</p>
+								<h4 class="mb-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">At Krish-V Global Interiors,</h4>
+								<p class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s"> we deliver end-to-end interior solutions that combine customized design, precision-driven execution, and premium quality materials. Every project is tailored to suit your lifestyle, with a focus on functionality, aesthetics, and smart space utilization—ensuring interiors that are both practical and visually refined.</p>
+								<p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">From concept to completion, our team ensures a seamless and transparent process with dedicated project management and on-time delivery. With factory-finished modular solutions, advanced manufacturing techniques, and attention to detail at every stage, we create interiors that are durable, elegant, and built for modern living.</p>
 							</div>
-							<a href="about-us-1.html" class="btn btn-primary wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.2s">About Us</a>
+							<a href="#aboutus" class="btn btn-primary wow fadeInUp" data-wow-duration="2s" data-wow-delay="1.2s">About Us</a>
 						</div>
 						<div class="col-md-5 col-lg-6"></div>
 					</div>
@@ -661,15 +776,83 @@
 								</div>
 							</div>	
 							<div class="section-head">
-								<h2 class="title">Architecure is a visual art, and The Building</h2>
-								<p>Praesent pharetra orci odio, ut mattis tellus ullamcorper ornare. Suspendisse ullamcorper metus in erat viverra, vehicula pharetra dolor accumsan. In arcu ex, rutrum finibus malesuada vel. Praesent pharetra orci odio, ut mattis tellus</p>
+								<h2 class="title">Krish-V Global Interiors </h2>
+								<p> brings more than a decade of industry experience in crafting refined and functional interior spaces in Bangalore. The focus lies in designing homes that align with individual lifestyles, balancing comfort, practicality, and visual appeal through thoughtful planning and execution.
+With a complete end-to-end approach, the team delivers tailored interior solutions using modern modular systems and premium-quality, durable materials. Every project is managed from concept to final handover with attention to detail, smooth coordination, and timely completion—resulting in spaces that feel modern, durable, and purposefully designed.
+</p>
 							</div>
 							<a href="portfolio-1.html" class="btn btn-primary m-r10 m-b10">View Portfolio</a>
-							<a href="company-history.html" class="btn btn-primary m-b10">Company History</a>
+							<a href="popup.html"class=" btn btn-primary m-b10" >Download Brochure</a>
+					
 						</div>
 					</div>
 				</div>
             </section>	
+
+			<div class="overlay" id="overlay">
+  <div class="popup">
+
+    <div class="popup-left"></div>
+
+    <div class="popup-right">
+      <h2>
+        Register now for a virtual project tour with our sales expert.
+      </h2>
+
+      <input type="text" id="name" placeholder="Enter Name">
+      <input type="text" id="phone" placeholder="Phone Number">
+      <input type="text" id="location" placeholder="Location">
+      <input type="email" id="email" placeholder="Email Address">
+
+      <button onclick="submitForm()">SUBMIT</button>
+    </div>
+
+  </div>
+
+  <div class="close-btn" onclick="closePopup()">✕</div>
+</div>
+
+<script>
+function openPopup() {
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function submitForm() {
+  const data = {
+  name: document.getElementById("name").value,
+  phone: document.getElementById("phone").value,
+  location: document.getElementById("location").value,
+  email: document.getElementById("email").value // ✅ NEW
+};
+
+  if (!data.name || !data.phone || !data.location) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  fetch("https://script.google.com/macros/s/AKfycbw48dsjmVReuCzwJAC6Zf5SFxP1AIuAI5dPsejZ9Hvsc_vheAOEKd0bLyedf-ZDoiBO/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (res.status === "success") {
+      alert("Submitted Successfully!");
+      window.open(res.pdfUrl, "_blank");
+      closePopup();
+    } else {
+      alert("Error: " + res.message);
+    }
+  })
+  .catch(err => alert("Error: " + err));
+}
+</script>
+
+
 
 					<!-- Video Section -->
 			<section class="video-bx overlay-black-middle" style="background-image: url(images/background/bg1.jpg); background-size: cover;" id="Reviews">
@@ -679,9 +862,9 @@
 							<div class="video-play">
 								<a href="https://www.youtube.com/watch?v=ExFri1jPPHY" class="popup-youtube video"><i class="fa fa-play"></i></a>
 							</div>
-							<h2 class="video-title text-white">The Power to Make Anything</h2>
-							<p class="video-content">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima.</p>
-							<a href="contact-us-1.html" class="btn btn-primary radius-xl"><span class="text-black">Contact us</span></a>
+							<h2 class="video-title text-white">Where Design Meets Perfection </h2>
+							<p class="video-content">Where every corner is crafted with purpose, comfort, and elegance. See how we bring your dream interiors to life with precision and design excellence.</p>
+							<a href="#contactus" class="btn btn-primary radius-xl"><span class="text-black">Contact us</span></a>
 						</div>
 					</div>
 				</div>
@@ -808,9 +991,9 @@
 				<div class="container">
 					<div class="row align-items-end section-head wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.5s">
 						<div class="col-md-6">
-							<h2 class="title">Building & Services</h2>
+							<h2 class="title">Interior Design & Execution Services</h2>
 							<div class="dlab-separator bg-primary"></div>
-							<p class="mb-3 mb-md-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+							<p class="mb-3 mb-md-0">We create functional and aesthetically refined interiors tailored to your lifestyle. From planning to execution, every detail is handled with precision and care.</p>
 						</div>
 						<div class="col-md-6 text-md-right">
 							<a href="javascript:void" class="btn btn-primary">View All Services</a>
@@ -825,8 +1008,8 @@
 									<img src="images/services/pic1.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">24 HRS. Water Supply</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">MODULAR KITCHEN DESIGN</h4>
+									<p>Smart, space-efficient kitchens designed for smooth workflow, modern storage, and elegant finishes.</p>
 								</div>
 							</div>
 						</div>
@@ -836,8 +1019,8 @@
 									<img src="images/services/pic2.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">CCTV With Intercom</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">LIVING ROOM INTERIORS</h4>
+									<p>Stylish and welcoming living spaces that balance comfort, functionality, and visual appeal.</p>
 								</div>
 							</div>
 						</div>
@@ -847,8 +1030,8 @@
 									<img src="images/services/pic3.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Power Backup</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title"> BEDROOM DESIGN</h4>
+									<p>Personalized bedroom interiors focused on relaxation, storage optimization, and calming aesthetics.</p>
 								</div>
 							</div>
 						</div>
@@ -858,8 +1041,8 @@
 									<img src="images/services/pic4.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">DTH Facilitiy</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">FALSE CEILING & LIGHTING</h4>
+									<p>Modern ceiling concepts combined with layered lighting to enhance depth, mood, and elegance.</p>
 								</div>
 							</div>
 						</div>
@@ -869,8 +1052,8 @@
 									<img src="images/services/pic5.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Rain Water Harvesting</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">WARDROBE & STORAGE SOLUTIONS</h4>
+									<p>Custom-built storage systems designed for maximum space utilization and clutter-free living.</p>
 								</div>
 							</div>
 						</div>
@@ -881,8 +1064,8 @@
 									<img src="images/services/pic6.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Fully Automatic Lifts</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">FULL HOME INTERIOR DESIGN</h4>
+									<p>End-to-end interior execution covering planning, design, materials, and on-site execution.</p>
 								</div>
 							</div>
 						</div>
@@ -892,8 +1075,8 @@
 									<img src="images/services/pic7.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Allotted Parking</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">3D DESIGN & SPACE PLANNING</h4>
+									<p>Realistic 3D visualizations to help you experience your home design before execution begins.</p>
 								</div>
 							</div>
 						</div>
@@ -903,8 +1086,8 @@
 									<img src="images/services/pic8.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Fire Fighting System</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">MATERIAL SELECTION & CONSULTATION</h4>
+									<p>Expert guidance in choosing premium materials, finishes, and colour combinations</p>
 								</div>
 							</div>
 						</div>
@@ -914,8 +1097,8 @@
 									<img src="images/services/pic9.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Security</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">CIVIL & INTERIOR EXECUTION</h4>
+									<p>Seamless execution combining structural modifications with interior finishing works.</p>
 								</div>
 							</div>
 						</div>
@@ -925,8 +1108,8 @@
 									<img src="images/services/pic10.jpg" alt=""/>
 								</div>
 								<div class="info">
-									<h4 class="title">Tow Level Parking</h4>
-									<p>The Krish-v Global Interior  is a collection of grand proportioned.</p>
+									<h4 class="title">CUSTOM FURNITURE DESIGN</h4>
+									<p>Tailor-made furniture pieces designed to perfectly fit your space and style preferences</p>
 								</div>
 							</div>
 						</div>
@@ -937,8 +1120,8 @@
 	        <section class="content-inner-2" data-content="OURPROJECTS" id="ourprojects">
                 <div class="container-fluid">
 					<div class="section-head text-center">
-						<p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">Design Projects</p>
-						<h2 class="title wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">19+ years’ experience</h2>
+						<p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">Our Projects</p>
+						<h2 class="title wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">Krish-V Global Projects</h2>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 text-center">

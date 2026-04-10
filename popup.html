@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Krish-v global Interior</title>
+
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+    }
+
+    /* OPEN BUTTON */
+    .open-btn {
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      padding: 15px 30px;
+      background: #a86522;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* POPUP CONTAINER */
+    .popup {
+      display: flex;
+      width: 750px;
+      max-width: 95%;
+      background: #e2c187;
+      border-radius: 6px;
+      overflow: hidden;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    /* LEFT IMAGE */
+    .popup-left {
+      width: 50%;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+      min-height: 350px;
+    }
+
+    /* RIGHT CONTENT */
+    .popup-right {
+      width: 50%;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .popup-right h2 {
+      font-size: 22px;
+      margin-bottom: 25px;
+      color: #000;
+      line-height: 1.4;
+    }
+
+    /* INPUT */
+    .popup-right input {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      background: #eee;
+      width: 100%;
+    }
+
+    /* BUTTON */
+    .popup-right button {
+      padding: 14px;
+      background: #a86522;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .popup-right button:hover {
+      background: #8a4f18;
+    }
+
+    /* CLOSE BUTTON */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      .popup {
+        flex-direction: column;
+      }
+      .popup-left {
+        width: 100%;
+        height: 200px;
+      }
+      .popup-right {
+        width: 100%;
+      }
+    }
+
+  </style>
+
+
+
+</head>
+
+<body>
+
+
+
+<button class="open-btn" onclick="openPopup()">Download Brochure</button>
+
+<div class="overlay" id="overlay">
+  <div class="popup">
+
+    <div class="popup-left"></div>
+
+    <div class="popup-right">
+      <h2>
+        Register now for a virtual project tour with our sales expert.
+      </h2>
+
+      <input type="text" id="name" placeholder="Enter Name">
+      <input type="text" id="phone" placeholder="Phone Number">
+      <input type="text" id="location" placeholder="Location">
+      <input type="email" id="email" placeholder="Email Address">
+
+      <button onclick="submitForm()">SUBMIT</button>
+    </div>
+
+  </div>
+
+  <div class="close-btn" onclick="closePopup()">✕</div>
+</div>
+
+<script>
+function openPopup() {
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function submitForm() {
+  const data = {
+  name: document.getElementById("name").value,
+  phone: document.getElementById("phone").value,
+  location: document.getElementById("location").value,
+  email: document.getElementById("email").value // ✅ NEW
+};
+
+  if (!data.name || !data.phone || !data.location) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  fetch("https://script.google.com/macros/s/AKfycbw48dsjmVReuCzwJAC6Zf5SFxP1AIuAI5dPsejZ9Hvsc_vheAOEKd0bLyedf-ZDoiBO/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (res.status === "success") {
+      alert("Submitted Successfully!");
+      window.open(res.pdfUrl, "_blank");
+      closePopup();
+    } else {
+      alert("Error: " + res.message);
+    }
+  })
+  .catch(err => alert("Error: " + err));
+}
+</script>
+
+
+
+
+
+</body>
+</html>
