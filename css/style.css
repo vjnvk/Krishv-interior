@@ -14408,8 +14408,8 @@ ul a.rsswidget {
     font-weight: 600;
     line-height: 85px;
     position: relative;
-    padding-left: 50px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 25px;
     z-index: 1; }
     .about-year span:after {
       content: "";
@@ -17754,9 +17754,9 @@ footer {
     color: #fff; }
   footer .footer-logo {
     max-width: 150px;
-    margin-bottom: 30px; }
+    margin-bottom: 10px; }
     footer .footer-logo img {
-      width: 100%; }
+      width: 55%; }
   footer .widget-logo ul {
     display: flex;
     align-items: center;
