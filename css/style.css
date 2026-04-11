@@ -13197,7 +13197,7 @@ ul a.rsswidget {
       background: transparent; }
 
 .about-box .about-bg {
-  background-image: url(../images/about/aboutus-2.png);
+  background-image: url(../images/krish-v-interior-center.png);
    /* background-image: url(../images/about/about.png); */
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -13226,7 +13226,7 @@ ul a.rsswidget {
 
 .about-box::before {
   content: "";
-  background-image: url(../images/about/aboutus-1.png);
+  /* background-image: url(../images/design-pattern.png); */
    /* background-image: url(../images/about/about1.png); */
   background-repeat: no-repeat;
   background-position: left bottom;
