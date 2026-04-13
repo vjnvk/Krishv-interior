@@ -17427,7 +17427,8 @@ ol.comment-list {
           .header-nav .nav > li > a {
             padding: 8px 0;
             display: block;
-            line-height: 30px; } }
+            line-height: 30px;
+          color:#000; } }
       .header-nav .nav > li .mega-menu,
       .header-nav .nav > li .sub-menu {
         background-color: #ffffff;
