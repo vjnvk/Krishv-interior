@@ -17795,13 +17795,15 @@ footer {
       bottom: 0;
       left: 0; }
   footer .footer-top {
-    background: #a6611c;
+    /* background: #a6611c; */
+    background: #000000;
     padding: 70px 0 30px; }
     @media only screen and (max-width: 767px) {
       footer .footer-top {
         padding: 50px 0 20px; } }
   footer .footer-bottom {
-    background-color: #a6611c;
+    /* background-color: #a6611c; */
+    background-color: #180c00;
     padding: 20px 0;
     font-size: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.25); }
