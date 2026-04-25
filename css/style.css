@@ -8980,7 +8980,7 @@ section {
 .dlab-bnr-inr {
   background: #faf8f2;
   height: 450px;
-  background-image: url(../images/banner.png);
+  /* background-image: url(../images/banner.png); */
   background-size: 50%;
   background-position: right bottom;
   background-repeat: no-repeat;
